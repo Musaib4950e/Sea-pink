@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Common variables across themes */
+  --pink-color: #E91E63;
+  --pink-dark: #C2185B;
+  --pink-light: #F8BBD0;
+}
+
+/* Dark theme (default) */
+.dark-theme {
+  --bg-primary: #121212;
+  --bg-secondary: #1E1E1E;
+  --bg-tertiary: #2D2D2D;
+  --text-primary: #FFFFFF;
+  --text-secondary: #B0B0B0;
+  --border-color: #3D3D3D;
+  --hover-bg: #333333;
+  --active-bg: #3D3D3D;
+  --accent-color: var(--pink-color);
+  --accent-hover: var(--pink-dark);
+  --accent-light: rgba(233, 30, 99, 0.2);
+  --error-color: #CF6679;
+  --success-color: #4CAF50;
+  --card-bg: #1E1E1E;
+  --input-bg: #2D2D2D;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Light theme */
+.light-theme {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F5F5F5;
+  --bg-tertiary: #EEEEEE;
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --border-color: #E0E0E0;
+  --hover-bg: #EEEEEE;
+  --active-bg: #E0E0E0;
+  --accent-color: var(--pink-color);
+  --accent-hover: var(--pink-dark);
+  --accent-light: rgba(233, 30, 99, 0.1);
+  --error-color: #B00020;
+  --success-color: #388E3C;
+  --card-bg: #FFFFFF;
+  --input-bg: #F5F5F5;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* App name styling */
+.app-name {
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--pink-color) 0%, var(--pink-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+@keyframes typing {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+/* Apply animations */
+.notification-container {
+  animation: slideInUp 0.3s ease forwards;
+}
+
+.message-bubble {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.typing-dot {
+  animation: pulse 1s infinite;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151; 
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563; 
+}
+
+/* Other global styles */
+body {
+  @apply bg-black text-white;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.background-animate {
+  background-size: 400%;
+  -webkit-animation: gradientAnimation 10s ease infinite;
+  -moz-animation: gradientAnimation 10s ease infinite;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Message status indicators */
+.message-status {
+  transition: all 0.2s ease-in-out;
+}
+
+.message-status:hover {
+  transform: scale(1.1);
+}
+
+/* Hover effects */
+.user-card {
+  transition: all 0.2s ease-in-out;
+}
+
+.user-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Mobile menu animation */
+.mobile-menu-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.mobile-menu-exit {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.mobile-menu-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 300ms, transform 300ms;
+}
